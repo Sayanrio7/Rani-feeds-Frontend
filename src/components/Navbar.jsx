@@ -45,12 +45,12 @@ export default function Navbar() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products/get-all")
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/products/get-all`)
       .then((res) => setProducts(res.data.data || []))
       .catch(() => {});
 
     axios
-      .get("http://localhost:5000/api/blogs/get-all")
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/get-all`)
       .then((res) => setBlogs(res.data.data || []))
       .catch(() => {});
   }, []);

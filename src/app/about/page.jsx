@@ -27,7 +27,7 @@ export default function AboutPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/about/get")
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/about/get`)
       .then((res) => {
         setAboutData(res.data.data);
       })
@@ -93,7 +93,7 @@ export default function AboutPage() {
     },
   ];
 
-  const process = [
+  const productionProcess = [
     {
       icon: <Microscope className="w-8 h-8" />,
       step: "01",
@@ -417,7 +417,7 @@ export default function AboutPage() {
 
           {/* PROCESS GRID */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 lg:gap-8">
-            {process.map((step, i) => (
+            {productionProcess.map((step, i) => (
               <div
                 key={i}
                 data-aos="fade-up"
@@ -425,7 +425,7 @@ export default function AboutPage() {
                 className="relative group h-full"
               >
                 {/* CONNECTOR */}
-                {i < process.length - 1 && (
+                {i < productionProcess.length - 1 && (
                   <div className="hidden lg:block absolute top-[82px] left-full w-8 h-[3px] bg-gradient-to-r from-green-500 to-orange-400 z-10"></div>
                 )}
 

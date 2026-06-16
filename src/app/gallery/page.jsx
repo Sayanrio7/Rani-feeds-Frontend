@@ -28,7 +28,7 @@ export default function GalleryPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/gallery/get-all")
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/gallery/get-all`)
       .then((res) => {
         setGalleryImages(res.data.data || []);
       })

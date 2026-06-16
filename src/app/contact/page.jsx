@@ -24,7 +24,7 @@ export default function ContactPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products/get-all")
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/products/get-all`)
       .then((res) => setProducts(res.data.data))
       .catch(() => {});
   }, []);
@@ -43,7 +43,7 @@ export default function ContactPage() {
       setSubmitLoading(true);
 
       const res = await axios.post(
-        "http://localhost:5000/api/enquiry/create",
+        `${process.env.NEXT_PUBLIC_API_URL}/enquiry/create`,
         form,
       );
 

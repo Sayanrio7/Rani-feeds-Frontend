@@ -20,14 +20,16 @@ export default function Home() {
   const images = gallery.slice(0, 6).map((item) => item.images?.[0]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/products/get-all").then((res) => {
-      setProducts(res.data.data.slice(0, 8));
-    });
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/products/get-all`)
+      .then((res) => {
+        setProducts(res.data.data.slice(0, 8));
+      });
   }, []);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/gallery/get-all")
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/gallery/get-all`)
       .then((res) => setGallery(res.data.data))
       .catch(() => {});
   }, []);

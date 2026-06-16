@@ -21,7 +21,7 @@ export default function BlogDetailsPage() {
     });
 
     axios
-      .get(`http://localhost:5000/api/blogs/get/${params.id}`)
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/get/${params.id}`)
       .then((res) => setBlog(res.data.data))
       .catch(() => {});
   }, [params.id]);

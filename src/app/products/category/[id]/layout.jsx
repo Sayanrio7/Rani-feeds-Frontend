@@ -3,7 +3,7 @@ export async function generateMetadata({ params }) {
 
   try {
     const res = await fetch(
-      `http://localhost:5000/api/products/category/${id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/products/category/${id}`,
       {
         cache: "no-store",
       },

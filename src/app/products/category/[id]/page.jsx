@@ -19,7 +19,7 @@ export default function CategoryProducts({ params }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products/category/${id}`)
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/products/category/${id}`)
       .then((res) => {
         setProducts(res.data.data);
 
