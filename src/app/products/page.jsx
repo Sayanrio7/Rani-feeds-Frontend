@@ -11,37 +11,6 @@ export default function ProductsPage() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fadeUp = {
-    hidden: {
-      opacity: 0,
-      y: 80,
-    },
-    show: (i = 1) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.12,
-        duration: 0.9,
-        ease: "easeOut",
-      },
-    }),
-  };
-
-  const zoomIn = {
-    hidden: {
-      opacity: 0,
-      scale: 0.92,
-    },
-    show: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-      },
-    },
-  };
-
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/category/get-all`)
@@ -109,35 +78,41 @@ export default function ProductsPage() {
                 key={cat._id}
               >
                 <motion.div
-                  custom={index}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeUp}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.05 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.05,
+                    ease: "easeOut",
+                  }}
                   whileHover={{
                     y: -15,
-                    transition: { duration: 0.4 },
+                    transition: { duration: 0.3 },
                   }}
                   className="
-          group
-          relative
-          overflow-hidden
-          rounded-sm
-          shadow-[0_15px_60px_rgba(0,0,0,0.12)]
-          cursor-pointer
-          bg-white
-          transition-all
-          duration-700
-          hover:-translate-y-4
-          hover:shadow-[0_25px_80px_rgba(0,0,0,0.20)]
-        "
+    group
+    relative
+    overflow-hidden
+    rounded-sm
+    shadow-[0_15px_60px_rgba(0,0,0,0.12)]
+    cursor-pointer
+    bg-white
+    transition-all
+    duration-700
+    hover:-translate-y-4
+    hover:shadow-[0_25px_80px_rgba(0,0,0,0.20)]
+  "
                 >
                   {/* IMAGE */}
                   <motion.div
-                    initial={{ scale: 1.08 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 1.2 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
+                    transition={{
+                      duration: 0.35,
+                      ease: "easeOut",
+                    }}
                     className="relative overflow-hidden h-[280px] sm:h-[360px] md:h-[360px]"
                   >
                     <img

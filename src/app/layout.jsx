@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         <Navbar />
 
         {/* MAIN CONTENT */}
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
 
         {/* FOOTER */}
         <Footer />

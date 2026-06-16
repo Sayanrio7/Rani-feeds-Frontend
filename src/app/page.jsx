@@ -403,53 +403,6 @@ export default function Home() {
 
           {/* PRODUCT WRAPPER */}
           <div className="relative">
-            {/* LEFT BUTTON */}
-            <button
-              onClick={() => {
-                const slider = document.getElementById("productSlider");
-
-                if (slider.scrollLeft <= 0) {
-                  slider.scrollTo({
-                    left: slider.scrollWidth,
-                    behavior: "smooth",
-                  });
-                } else {
-                  slider.scrollBy({
-                    left: -320,
-                    behavior: "smooth",
-                  });
-                }
-              }}
-              className="lg:hidden absolute left-4 top-[40%] sm:top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-gradient-to-l from-green-600 to-green-800 shadow-lg border border-gray-200 flex items-center justify-center"
-            >
-              ⮜
-            </button>
-
-            {/* RIGHT BUTTON */}
-            <button
-              onClick={() => {
-                const slider = document.getElementById("productSlider");
-
-                if (
-                  slider.scrollLeft + slider.clientWidth >=
-                  slider.scrollWidth - 10
-                ) {
-                  slider.scrollTo({
-                    left: 0,
-                    behavior: "smooth",
-                  });
-                } else {
-                  slider.scrollBy({
-                    left: 320,
-                    behavior: "smooth",
-                  });
-                }
-              }}
-              className="lg:hidden absolute right-4 top-[40%] sm:top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-gradient-to-r from-green-600 to-green-800 shadow-lg border border-gray-200 flex items-center justify-center"
-            >
-              ⮞
-            </button>
-
             {/* PRODUCTS */}
             <div
               id="productSlider"
@@ -459,11 +412,13 @@ export default function Home() {
     lg:grid-cols-3
     gap-6 lg:gap-10
     overflow-x-auto
+    overflow-y-hidden
     lg:overflow-visible
     scroll-smooth
     no-scrollbar
     snap-x
     snap-mandatory
+    touch-pan-x
     px-[calc(50vw-140px)]
     sm:px-[calc(50vw-160px)]
     lg:px-0
@@ -477,7 +432,7 @@ export default function Home() {
     snap-center
     shrink-0
     w-full
-    max-w-[280px]
+    max-w-[300px]
     sm:max-w-[320px]
     lg:max-w-full
     mx-auto
@@ -494,19 +449,15 @@ export default function Home() {
                       <img
                         src={p.images?.[0]}
                         alt={p.name}
-                        className="w-full h-[400px] sm:h-[320px] lg:h-[560px] object-cover transition duration-700 group-hover:scale-105"
+                        className="w-full h-[400px] sm:h-[560px] object-cover transition duration-700 group-hover:scale-105"
                       />
                     </div>
 
                     {/* TEXT */}
                     <div className="mt-5">
-                      <h3 className="text-[21px] sm:text-2xl font-bold text-[#061539] group-hover:text-green-700 transition duration-300">
+                      <h3 className="text-[23.5px] sm:text-[26px] font-bold text-[#061539] group-hover:text-green-700 transition duration-300">
                         {p.name}
                       </h3>
-
-                      <p className="mt-2 text-gray-600 text-lg">
-                        {p.protein || "Premium Fish Feed"}
-                      </p>
                     </div>
                   </div>
                 </TranslateSafeLink>
@@ -713,7 +664,7 @@ export default function Home() {
               className="w-full h-[350px] md:h-[850px] object-cover transition duration-[3000ms] group-hover:scale-105"
               controls={false}
             >
-              <source src="/Rani-Video.mp4" type="video/mp4" />
+              <source src="/rani-video.mp4" type="video/mp4" />
             </video>
 
             {/* DARK OVERLAY */}
@@ -979,6 +930,7 @@ export default function Home() {
           {/* TESTIMONIAL SLIDER */}
           <div className="relative">
             {/* LEFT BUTTON */}
+            {/* LEFT BUTTON DESKTOP */}
             <button
               onClick={() => {
                 const slider = document.getElementById("testimonialSlider");
@@ -996,13 +948,13 @@ export default function Home() {
                 }
               }}
               className="
+hidden sm:flex
 absolute
 left-3 lg:-left-6
 top-1/2
 -translate-y-1/2
 z-20
 w-13 h-13
-sm:w-13 sm:h-13
 lg:w-14 lg:h-14
 rounded-full
 bg-gradient-to-l from-green-600 to-green-800
@@ -1010,19 +962,58 @@ sm:bg-white/95
 backdrop-blur-md
 border border-gray-200
 shadow-[0_10px_30px_rgba(0,0,0,0.12)]
-flex items-center justify-center
+items-center justify-center
 text-white
 text-lg lg:text-2xl
 hover:border-green-700
-transition-all
-duration-300
+transition-all duration-300
 cursor-pointer
 "
             >
               ⮜
             </button>
 
+            {/* LEFT BUTTON MOBILE */}
+            <button
+              onClick={() => {
+                const slider = document.getElementById("testimonialSlider");
+
+                if (slider.scrollLeft <= 0) {
+                  slider.scrollTo({
+                    left: slider.scrollWidth,
+                    behavior: "smooth",
+                  });
+                } else {
+                  slider.scrollBy({
+                    left: -320,
+                    behavior: "smooth",
+                  });
+                }
+              }}
+              className="
+sm:hidden
+absolute
+left-4
+top-1/2
+-translate-y-1/2
+z-20
+w-10 h-10
+rounded-full
+bg-gradient-to-l from-green-600 to-green-800
+sm:bg-white/95
+backdrop-blur-md
+border border-gray-200
+shadow-[0_10px_30px_rgba(0,0,0,0.12)]
+flex items-center justify-center
+text-white text-xl
+cursor-pointer
+"
+            >
+              ←
+            </button>
+
             {/* RIGHT BUTTON */}
+            {/* RIGHT BUTTON DESKTOP */}
             <button
               onClick={() => {
                 const slider = document.getElementById("testimonialSlider");
@@ -1043,13 +1034,13 @@ cursor-pointer
                 }
               }}
               className="
+hidden sm:flex
 absolute
 right-3 lg:-right-6
 top-1/2
 -translate-y-1/2
 z-20
 w-13 h-13
-sm:w-13 sm:h-13
 lg:w-14 lg:h-14
 rounded-full
 bg-gradient-to-r from-green-600 to-green-800
@@ -1057,16 +1048,58 @@ sm:bg-white/95
 backdrop-blur-md
 border border-gray-200
 shadow-[0_10px_30px_rgba(0,0,0,0.12)]
-flex items-center justify-center
+items-center justify-center
 text-white
 text-lg lg:text-2xl
 hover:border-green-700
-transition-all
-duration-300
+transition-all duration-300
 cursor-pointer
 "
             >
               ⮞
+            </button>
+
+            {/* RIGHT BUTTON MOBILE */}
+            <button
+              onClick={() => {
+                const slider = document.getElementById("testimonialSlider");
+
+                if (
+                  slider.scrollLeft + slider.clientWidth >=
+                  slider.scrollWidth - 10
+                ) {
+                  slider.scrollTo({
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                } else {
+                  slider.scrollBy({
+                    left: 320,
+                    behavior: "smooth",
+                  });
+                }
+              }}
+              className="
+sm:hidden
+absolute
+right-4
+top-1/2
+-translate-y-1/2
+z-20
+w-10 h-10
+rounded-full
+bg-gradient-to-r from-green-600 to-green-800
+sm:bg-white/95
+backdrop-blur-md
+border border-gray-200
+shadow-lg
+shadow-[0_10px_30px_rgba(0,0,0,0.12)]
+flex items-center justify-center
+text-white text-xl
+cursor-pointer
+"
+            >
+              →
             </button>
 
             {/* SLIDER */}
@@ -1080,7 +1113,7 @@ cursor-pointer
           no-scrollbar
           snap-x
           snap-mandatory
-          px-[calc(50vw-140px)]
+          px-[calc(50vw-150px)]
           sm:px-[calc(50vw-170px)]
           lg:px-0
           py-4

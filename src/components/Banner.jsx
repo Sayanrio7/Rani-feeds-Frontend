@@ -162,20 +162,36 @@ export default function Banner() {
         </div>
       </div>
 
-      {/* LEFT ARROW */}
+      {/* LEFT ARROW DESKTOP */}
       <button
         onClick={prev}
-        className="absolute left-4 sm:left-6 top-[62%] sm:top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-lg sm:text-2xl hover:bg-white/20 transition duration-300 hover:scale-110 cursor-pointer"
+        className="hidden sm:flex absolute left-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-2xl hover:bg-white/20 transition duration-300 hover:scale-110 cursor-pointer items-center justify-center"
       >
         ⮜
       </button>
 
-      {/* RIGHT ARROW */}
+      {/* LEFT ARROW MOBILE */}
+      <button
+        onClick={prev}
+        className="sm:hidden absolute left-4 top-[62%] -translate-y-1/2 z-40 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/30 text-white text-xl flex items-center justify-center"
+      >
+        ←
+      </button>
+
+      {/* RIGHT ARROW DESKTOP */}
       <button
         onClick={next}
-        className="absolute right-4 sm:right-6 top-[62%] sm:top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-lg sm:text-2xl hover:bg-white/20 transition duration-300 hover:scale-110 cursor-pointer"
+        className="hidden sm:flex absolute right-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-2xl hover:bg-white/20 transition duration-300 hover:scale-110 cursor-pointer items-center justify-center"
       >
         ⮞
+      </button>
+
+      {/* RIGHT ARROW MOBILE */}
+      <button
+        onClick={next}
+        className="sm:hidden absolute right-4 top-[62%] -translate-y-1/2 z-40 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/30 text-white text-xl flex items-center justify-center"
+      >
+        →
       </button>
 
       {/* DOTS */}
