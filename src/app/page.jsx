@@ -418,7 +418,6 @@ export default function Home() {
     no-scrollbar
     snap-x
     snap-mandatory
-    touch-pan-x
     px-[calc(50vw-140px)]
     sm:px-[calc(50vw-160px)]
     lg:px-0
@@ -712,27 +711,6 @@ export default function Home() {
                 aquaculture farms for superior growth, health, and
                 sustainability.
               </p>
-
-              {/* BUTTONS */}
-              {/* <div
-                data-aos="fade-up"
-                data-aos-delay="600"
-                className="mt-12 flex gap-5 flex-wrap justify-center"
-              >
-                <Link
-                  href="/products"
-                  className="bg-green-700 hover:bg-green-800 text-white px-10 py-4 rounded-2xl text-lg font-semibold shadow-xl transition hover:scale-105"
-                >
-                  Explore Products →
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-2xl text-lg font-semibold shadow-xl transition hover:scale-105"
-                >
-                  Contact Us
-                </Link>
-              </div> */}
             </div>
           </div>
         </div>
