@@ -93,18 +93,25 @@ export default function Navbar() {
 
     if (!select) return;
 
-    if (language === "en") {
+    const currentLanguage = localStorage.getItem("site-language") || "en";
+
+    if (currentLanguage === "en") {
       select.value = "bn";
-      select.dispatchEvent(new Event("change"));
+      select.dispatchEvent(new Event("change", { bubbles: true }));
 
-      setLanguage("bn");
       localStorage.setItem("site-language", "bn");
+      setLanguage("bn");
     } else {
-      select.value = "en";
-      select.dispatchEvent(new Event("change"));
+      document.cookie =
+        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-      setLanguage("en");
+      document.cookie = "googtrans=/auto/en; path=/;";
+
       localStorage.setItem("site-language", "en");
+      setLanguage("en");
+
+      // force refresh
+      window.location.reload();
     }
   };
 
