@@ -181,7 +181,7 @@ export default function Home() {
             </div>
 
             <Link
-              data-aos="zoom-in"
+              data-aos="fade-right"
               data-aos-delay="450"
               href="/about"
               className="group relative inline-flex items-center justify-center overflow-hidden mt-10 bg-gradient-to-r from-green-600 to-green-800 px-6 sm:px-8 py-3 sm:py-4 rounded-sm font-semibold text-xl text-white shadow-xl transition duration-300 hover:scale-105"
@@ -236,7 +236,6 @@ export default function Home() {
             <div data-aos="fade-left">
               <p
                 data-aos="fade-up"
-                data-aos-delay="100"
                 className="inline-block uppercase tracking-[4px] text-orange-500 font-bold text-md sm:text-md border-b-2 border-orange-400 pb-1"
               >
                 Our Approach
@@ -244,7 +243,7 @@ export default function Home() {
 
               <h2
                 data-aos="fade-up"
-                data-aos-delay="200"
+                data-aos-delay="150"
                 className="mt-3 text-[34px] sm:text-[2.75rem] font-extrabold text-[#061539] leading-[1.15]"
               >
                 Smart Nutrition For
@@ -253,7 +252,7 @@ export default function Home() {
 
               <p
                 data-aos="fade-up"
-                data-aos-delay="300"
+                data-aos-delay="200"
                 className="mt-4 sm:mt-8 text-md sm:text-lg leading-[1.9] text-[#667085]"
               >
                 At Rani Feeds, we focus on delivering scientifically balanced
@@ -266,7 +265,7 @@ export default function Home() {
                 {/* POINT 1 */}
                 <div
                   data-aos="fade-right"
-                  data-aos-delay="100"
+                  data-aos-delay="250"
                   className="flex items-start gap-5 group"
                 >
                   <div className="flex items-center justify-center">
@@ -277,8 +276,6 @@ export default function Home() {
 
                   <div>
                     <h3
-                      data-aos="fade-up"
-                      data-aos-delay="150"
                       className="text-xl sm:text-2xl font-bold text-[#061539]"
                     >
                       Advanced Feed Formulation
@@ -294,7 +291,7 @@ export default function Home() {
                 {/* POINT 2 */}
                 <div
                   data-aos="fade-right"
-                  data-aos-delay="200"
+                  data-aos-delay="350"
                   className="flex items-start gap-5 group"
                 >
                   <div className="flex items-center justify-center">
@@ -305,8 +302,6 @@ export default function Home() {
 
                   <div>
                     <h3
-                      data-aos="fade-up"
-                      data-aos-delay="150"
                       className="text-xl sm:text-2xl font-bold text-[#061539]"
                     >
                       Better Farm Productivity
@@ -322,7 +317,7 @@ export default function Home() {
                 {/* POINT 3 */}
                 <div
                   data-aos="fade-right"
-                  data-aos-delay="300"
+                  data-aos-delay="450"
                   className="flex items-start gap-5 group"
                 >
                   <div className="flex items-center justify-center">
@@ -333,8 +328,6 @@ export default function Home() {
 
                   <div>
                     <h3
-                      data-aos="fade-up"
-                      data-aos-delay="150"
                       className="text-xl sm:text-2xl font-bold text-[#061539]"
                     >
                       Sustainable Aquaculture
@@ -350,8 +343,8 @@ export default function Home() {
 
               {/* BUTTON */}
               <Link
-                data-aos="zoom-in"
-                data-aos-delay="500"
+                data-aos="fade-right"
+                data-aos-delay="450"
                 href="/about"
                 className="group relative inline-flex items-center justify-center overflow-hidden mt-10 bg-gradient-to-r from-green-600 to-green-800 px-6 sm:px-8 py-3 sm:py-4 rounded-sm text-xl font-semibold text-white shadow-xl transition duration-300 hover:scale-105"
               >

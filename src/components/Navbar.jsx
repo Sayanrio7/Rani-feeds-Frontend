@@ -89,25 +89,22 @@ export default function Navbar() {
   );
 
   const toggleLanguage = () => {
-    if (language === "en") {
-      // English → Bengali
-      const select = document.querySelector(".goog-te-combo");
+    const select = document.querySelector(".goog-te-combo");
 
-      if (select) {
-        select.value = "bn";
-        select.dispatchEvent(new Event("change"));
-      }
+    if (!select) return;
+
+    if (language === "en") {
+      select.value = "bn";
+      select.dispatchEvent(new Event("change"));
 
       setLanguage("bn");
       localStorage.setItem("site-language", "bn");
     } else {
-      // Bengali → English (restore original)
-      document.cookie =
-        "googtrans=/en/en; path=/; domain=" + window.location.hostname;
+      select.value = "en";
+      select.dispatchEvent(new Event("change"));
 
+      setLanguage("en");
       localStorage.setItem("site-language", "en");
-
-      window.location.reload();
     }
   };
 

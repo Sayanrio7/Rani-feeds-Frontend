@@ -6,6 +6,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Poppins, Noto_Sans_Bengali } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import ScrollToTopOnRouteChange from "@/components/ScrollToTopOnRouteChange";
 
 export const metadata = {
   title: {
@@ -33,6 +34,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.className} ${notoBengali.className} bg-white text-gray-900`}
       >
+        <ScrollToTopOnRouteChange />
+
         {/* Hidden Google Translate */}
         <GoogleTranslate />
 
