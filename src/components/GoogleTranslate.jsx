@@ -4,7 +4,6 @@ import { useEffect } from "react";
 
 export default function GoogleTranslate() {
   useEffect(() => {
-    // Avoid loading twice
     if (window.googleTranslateElementInit) return;
 
     window.googleTranslateElementInit = () => {
@@ -15,14 +14,16 @@ export default function GoogleTranslate() {
             includedLanguages: "en,bn",
             autoDisplay: false,
           },
-          "google_translate_element"
+          "google_translate_element",
         );
       }
     };
 
     const script = document.createElement("script");
+
     script.src =
       "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+
     script.async = true;
 
     document.body.appendChild(script);
@@ -32,5 +33,10 @@ export default function GoogleTranslate() {
     };
   }, []);
 
-  return <div id="google_translate_element" className="hidden"></div>;
+  return (
+    <div
+      id="google_translate_element"
+      style={{ display: "none" }}
+    />
+  );
 }

@@ -93,49 +93,45 @@ export default function Navbar() {
 
     if (!select) return;
 
-    const currentLanguage = localStorage.getItem("site-language") || "en";
-
-    if (currentLanguage === "en") {
+    if (language === "en") {
       select.value = "bn";
       select.dispatchEvent(new Event("change", { bubbles: true }));
 
       localStorage.setItem("site-language", "bn");
       setLanguage("bn");
     } else {
-      localStorage.removeItem("site-language");
+      localStorage.setItem("site-language", "en");
 
-      document.cookie =
-        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-      document.cookie =
-        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
-        window.location.hostname;
+      document.cookie = "googtrans=/en/en; path=/";
 
       setLanguage("en");
 
-      window.location.href = window.location.pathname;
+      window.location.reload();
     }
   };
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("site-language");
+    const savedLanguage = localStorage.getItem("site-language") || "en";
 
-    if (savedLanguage === "bn") {
-      setLanguage("bn");
+    setLanguage(savedLanguage);
 
-      const timer = setInterval(() => {
-        const select = document.querySelector(".goog-te-combo");
+    const timer = setInterval(() => {
+      const select = document.querySelector(".goog-te-combo");
 
-        if (select) {
-          select.value = "bn";
-          select.dispatchEvent(new Event("change", { bubbles: true }));
+      if (select) {
+        select.value = savedLanguage;
 
-          clearInterval(timer);
-        }
-      }, 500);
+        select.dispatchEvent(
+          new Event("change", {
+            bubbles: true,
+          }),
+        );
 
-      return () => clearInterval(timer);
-    }
+        clearInterval(timer);
+      }
+    }, 500);
+
+    return () => clearInterval(timer);
   }, []);
 
   return (
