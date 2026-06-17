@@ -102,16 +102,18 @@ export default function Navbar() {
       localStorage.setItem("site-language", "bn");
       setLanguage("bn");
     } else {
+      localStorage.removeItem("site-language");
+
       document.cookie =
         "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-      document.cookie = "googtrans=/auto/en; path=/;";
+      document.cookie =
+        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
+        window.location.hostname;
 
-      localStorage.setItem("site-language", "en");
       setLanguage("en");
 
-      // force refresh
-      window.location.reload();
+      window.location.href = window.location.pathname;
     }
   };
 
@@ -121,14 +123,18 @@ export default function Navbar() {
     if (savedLanguage === "bn") {
       setLanguage("bn");
 
-      setTimeout(() => {
+      const timer = setInterval(() => {
         const select = document.querySelector(".goog-te-combo");
 
         if (select) {
           select.value = "bn";
-          select.dispatchEvent(new Event("change"));
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+
+          clearInterval(timer);
         }
-      }, 1500);
+      }, 500);
+
+      return () => clearInterval(timer);
     }
   }, []);
 

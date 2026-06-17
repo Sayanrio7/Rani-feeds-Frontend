@@ -35,8 +35,7 @@ export default function SearchModal({ onClose }) {
 
     document.addEventListener("mousedown", handleClickOutside);
 
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [onClose]);
 
   // ESC KEY
@@ -60,6 +59,24 @@ export default function SearchModal({ onClose }) {
     item.title?.toLowerCase().includes(search.toLowerCase()),
   );
 
+  useEffect(() => {
+    const scrollY = window.scrollY;
+
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+
+      window.scrollTo(0, scrollY);
+    };
+  }, []);
+
   return (
     <div className="fixed inset-0 z-[99999] bg-black/70 backdrop-blur-md flex items-center justify-center p-4">
       <div
@@ -81,7 +98,11 @@ export default function SearchModal({ onClose }) {
         {/* SEARCH HEADER */}
         <div className="sticky top-0 z-20 bg-white border-b border-gray-100 p-4">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-sm bg-green-700 flex items-center justify-center shrink-0">
+            <div
+              className="w-11 h-11 rounded-sm bg-gradient-to-r
+                from-green-600
+                to-green-800 flex items-center justify-center shrink-0"
+            >
               <Search className="w-5 h-5 text-white" />
             </div>
 
@@ -110,7 +131,9 @@ export default function SearchModal({ onClose }) {
                 w-11
                 h-11
                 rounded-sm
-                bg-orange-500
+                bg-gradient-to-r
+                from-orange-500
+                to-orange-700
                 text-white
                 flex
                 items-center
@@ -125,7 +148,7 @@ export default function SearchModal({ onClose }) {
         </div>
 
         {/* RESULTS */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto overscroll-contain">
           {/* PRODUCTS */}
           {filteredProducts.length > 0 && (
             <div className="p-4 border-b border-gray-100">
@@ -143,7 +166,7 @@ export default function SearchModal({ onClose }) {
                 {filteredProducts.slice(0, 8).map((item) => (
                   <Link
                     key={item._id}
-                    href={`/products/${item._id}`}
+                    href={`/products/category/${item.category._id}?product=${item._id}`}
                     onClick={onClose}
                     className="
                       flex
