@@ -356,7 +356,7 @@ export default function Navbar() {
                           {filteredProducts.slice(0, 5).map((item) => (
                             <Link
                               key={item._id}
-                              href={`/products/${item._id}`}
+                              href={`/products/category/${item.category._id}?product=${item._id}`}
                               onClick={() => {
                                 setSearchOpen(false);
                                 setSearchTerm("");
