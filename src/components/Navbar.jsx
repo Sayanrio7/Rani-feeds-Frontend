@@ -106,12 +106,16 @@ export default function Navbar() {
     } else {
       localStorage.removeItem("site-language");
 
-      // Force English
+      // Force English in all cookie scopes
       document.cookie = "googtrans=/en/en; path=/";
+      document.cookie =
+        "googtrans=/en/en; path=/; domain=" + window.location.hostname;
+      document.cookie =
+        "googtrans=/en/en; path=/; domain=." + window.location.hostname;
 
       setLanguage("en");
 
-      // Hard refresh
+      // Full hard reload
       window.location.href = window.location.pathname;
     }
   };
