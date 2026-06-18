@@ -106,17 +106,30 @@ export default function Navbar() {
     } else {
       localStorage.removeItem("site-language");
 
-      // Force English in all cookie scopes
-      document.cookie = "googtrans=/en/en; path=/";
+      select.value = "en";
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+
+      const domains = [
+        "ranifeeds.in",
+        ".ranifeeds.in",
+        "www.ranifeeds.in",
+        ".www.ranifeeds.in",
+        window.location.hostname,
+        "." + window.location.hostname,
+      ];
+
+      domains.forEach((domain) => {
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+      });
+
       document.cookie =
-        "googtrans=/en/en; path=/; domain=" + window.location.hostname;
-      document.cookie =
-        "googtrans=/en/en; path=/; domain=." + window.location.hostname;
+        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 
       setLanguage("en");
 
-      // Full hard reload
-      window.location.href = window.location.pathname;
+      setTimeout(() => {
+        window.location.reload();
+      }, 300);
     }
   };
 
@@ -130,21 +143,23 @@ export default function Navbar() {
 
     setLanguage("bn");
 
+    let attempts = 0;
+
     const timer = setInterval(() => {
       const select = document.querySelector(".goog-te-combo");
 
       if (select) {
         select.value = "bn";
-
-        select.dispatchEvent(
-          new Event("change", {
-            bubbles: true,
-          }),
-        );
+        select.dispatchEvent(new Event("change", { bubbles: true }));
 
         clearInterval(timer);
+        return;
       }
-    }, 500);
+
+      if (++attempts >= 30) {
+        clearInterval(timer);
+      }
+    }, 300);
 
     return () => clearInterval(timer);
   }, []);
