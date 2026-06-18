@@ -106,18 +106,13 @@ export default function Navbar() {
     } else {
       localStorage.removeItem("site-language");
 
-      // Remove Google Translate cookies
-      document.cookie =
-        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname}`;
-
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname}`;
+      // Force English
+      document.cookie = "googtrans=/en/en; path=/";
 
       setLanguage("en");
 
-      // Hard reload
-      window.location.replace(window.location.pathname);
+      // Hard refresh
+      window.location.href = window.location.pathname;
     }
   };
 
