@@ -115,7 +115,7 @@ export default function ContactPage() {
           <h3 className="text-xl font-black text-[#061539]">Email Address</h3>
 
           <p className="mt-2 text-gray-600 leading-[1.8]">
-            ranifeeds@gmail.com
+            info@ranifeeds.in
           </p>
         </div>
       </div>

@@ -104,26 +104,38 @@ export default function Navbar() {
       localStorage.setItem("site-language", "bn");
       setLanguage("bn");
     } else {
-      localStorage.setItem("site-language", "en");
+      localStorage.removeItem("site-language");
 
-      document.cookie = "googtrans=/en/en; path=/";
+      // Remove Google Translate cookies
+      document.cookie =
+        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname}`;
+
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname}`;
 
       setLanguage("en");
 
-      window.location.reload();
+      // Hard reload
+      window.location.replace(window.location.pathname);
     }
   };
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("site-language") || "en";
+    const savedLanguage = localStorage.getItem("site-language");
 
-    setLanguage(savedLanguage);
+    if (savedLanguage !== "bn") {
+      setLanguage("en");
+      return;
+    }
+
+    setLanguage("bn");
 
     const timer = setInterval(() => {
       const select = document.querySelector(".goog-te-combo");
 
       if (select) {
-        select.value = savedLanguage;
+        select.value = "bn";
 
         select.dispatchEvent(
           new Event("change", {

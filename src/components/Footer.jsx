@@ -202,10 +202,10 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-green-500 shrink-0" />
 
                 <a
-                  href="mailto:ranifeeds@gmail.com"
+                  href="mailto:info@ranifeeds.in"
                   className="text-md md:text-base hover:text-green-400 transition-colors"
                 >
-                  ranifeeds@gmail.com
+                  info@ranifeeds.in
                 </a>
               </li>
             </ul>
