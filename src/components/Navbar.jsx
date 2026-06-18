@@ -47,12 +47,16 @@ export default function Navbar() {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/products/get-all`)
       .then((res) => setProducts(res.data.data || []))
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
 
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/get-all`)
       .then((res) => setBlogs(res.data.data || []))
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   useEffect(() => {
@@ -566,7 +570,7 @@ export default function Navbar() {
                   setMobileSearchOpen(true);
                 }, 300);
               }}
-              className={`mt-6 flex items-center justify-center gap-3 border border-gray-200 bg-gray-50 hover:bg-gray-100 text-[#061539] py-4 rounded-sm text-lg font-semibold transition-all duration-700 ${
+              className={`mt-6 flex items-center justify-center gap-3 border border-gray-200 bg-gray-50 hover:bg-gray-100 text-[#061539] py-4 rounded-sm text-md font-semibold transition-all duration-700 ${
                 open ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
               style={{
@@ -581,7 +585,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className={`group mt-8 flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-700 text-white tracking-[2.5px] py-4 rounded-sm text-lg shadow-lg transition-all duration-700 ${
+              className={`group mt-8 flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-700 text-white tracking-[2px] py-4 rounded-sm text-md shadow-lg transition-all duration-700 ${
                 open ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
               style={{
@@ -590,7 +594,7 @@ export default function Navbar() {
             >
               ENQUIRE NOW
               <Send
-                size={22}
+                size={20}
                 strokeWidth={2.2}
                 className="transition-transform duration-300 ease-out group-hover:translate-x-1.5"
               />

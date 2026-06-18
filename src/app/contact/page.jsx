@@ -26,7 +26,9 @@ export default function ContactPage() {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/products/get-all`)
       .then((res) => setProducts(res.data.data))
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   const handleChange = (e) => {
@@ -100,7 +102,7 @@ export default function ContactPage() {
         <div>
           <h3 className="text-xl font-black text-[#061539]">Call Us</h3>
 
-          <p className="mt-2 text-gray-600 leading-[1.8]">9804036124 / 9073558447</p>
+          <p className="mt-2 text-gray-600 leading-[1.8]">+91 9073558447</p>
         </div>
       </div>
 
@@ -112,7 +114,9 @@ export default function ContactPage() {
         <div>
           <h3 className="text-xl font-black text-[#061539]">Email Address</h3>
 
-          <p className="mt-2 text-gray-600 leading-[1.8]">info@ranifeeds.com</p>
+          <p className="mt-2 text-gray-600 leading-[1.8]">
+            ranifeeds@gmail.com
+          </p>
         </div>
       </div>
 

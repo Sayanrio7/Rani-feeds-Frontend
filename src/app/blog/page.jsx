@@ -23,7 +23,9 @@ export default function BlogPage() {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/get-all`)
       .then((res) => setBlogs(res.data.data))
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   useEffect(() => {

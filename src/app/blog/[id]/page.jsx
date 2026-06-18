@@ -23,7 +23,9 @@ export default function BlogDetailsPage() {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/get/${params.id}`)
       .then((res) => setBlog(res.data.data))
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
   }, [params.id]);
 
   if (!blog) return null;

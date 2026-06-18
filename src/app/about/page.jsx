@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import Image from "next/image";
 import Loader from "@/components/Loader";
 import {
   FlaskConical,
@@ -35,12 +36,6 @@ export default function AboutPage() {
         console.log(err);
       });
   }, []);
-
-  const imgSrc = aboutData?.image?.startsWith("http")
-    ? aboutData.image
-    : aboutData?.image
-      ? `http://localhost:5000${aboutData.image}`
-      : "/feedbags1.png";
 
   const coreValues = [
     {
@@ -134,7 +129,7 @@ export default function AboutPage() {
       icon: <Award className="w-6 h-6 text-white" />,
     },
     {
-      value: "High FCR",
+      value: "Low FCR",
       label: "Feed Conversion Ratio",
       color: "bg-[#061539]",
       icon: <BarChart3 className="w-6 h-6 text-white" />,
@@ -150,7 +145,7 @@ export default function AboutPage() {
   useEffect(() => {
     AOS.init({
       duration: 1200,
-      offset: 80,
+      offset: 50,
       once: true,
       easing: "ease-in-out",
     });
@@ -211,11 +206,16 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
             <div data-aos="fade-right" className="relative">
               <div className="relative overflow-hidden rounded-sm shadow-[0_30px_80px_rgba(0,0,0,0.15)]">
-                <img
-                  src={imgSrc}
-                  alt="About Rani Feeds"
-                  className="w-full h-[320px] sm:h-[460px] md:h-[700px] object-cover transition duration-700 hover:scale-105"
-                />
+                <div className="relative w-full h-[320px] sm:h-[460px] md:h-[700px] overflow-hidden">
+                  <Image
+                    src="/banner700.jpg"
+                    alt="About Rani Feeds"
+                    fill
+                    priority
+                    sizes="(max-width:768px) 100vw, 50vw"
+                    className="object-cover transition duration-700 hover:scale-105"
+                  />
+                </div>
               </div>
               <div
                 className="absolute -bottom-6 -right-6 w-32 h-32 opacity-20 hidden lg:block"
@@ -491,7 +491,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                src: imgSrc,
+                src: "/banner700.jpg",
                 alt: "Fish Farming",
                 title: "Sustainable Farming",
                 desc: "Supporting healthier aquaculture ecosystems.",
@@ -521,11 +521,15 @@ export default function AboutPage() {
                 data-aos-delay={i * 150}
                 className="group relative overflow-hidden rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.13)]"
               >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-full h-[300px] sm:h-[340px] object-cover transition duration-700 group-hover:scale-110"
-                />
+                <div className="relative w-full h-[300px] sm:h-[340px]">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width:768px) 100vw, 33vw"
+                    className="object-cover transition duration-700 group-hover:scale-110"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
                 <span className="absolute top-4 left-4 bg-gradient-to-r from-green-600 to-green-800 text-white text-sm font-bold px-3 py-1 rounded-full tracking-wider">
                   {item.tag}

@@ -17,12 +17,16 @@ export default function SearchModal({ onClose }) {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/products/get-all`)
       .then((res) => setProducts(res.data.data || []))
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
 
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/get-all`)
       .then((res) => setBlogs(res.data.data || []))
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   // OUTSIDE CLICK

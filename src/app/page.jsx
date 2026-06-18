@@ -31,7 +31,9 @@ export default function Home() {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/gallery/get-all`)
       .then((res) => setGallery(res.data.data))
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   useEffect(() => {
@@ -275,9 +277,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <h3
-                      className="text-xl sm:text-2xl font-bold text-[#061539]"
-                    >
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#061539]">
                       Advanced Feed Formulation
                     </h3>
 
@@ -301,9 +301,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <h3
-                      className="text-xl sm:text-2xl font-bold text-[#061539]"
-                    >
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#061539]">
                       Better Farm Productivity
                     </h3>
 
@@ -327,9 +325,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <h3
-                      className="text-xl sm:text-2xl font-bold text-[#061539]"
-                    >
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#061539]">
                       Sustainable Aquaculture
                     </h3>
 

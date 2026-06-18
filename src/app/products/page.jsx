@@ -15,7 +15,9 @@ export default function ProductsPage() {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/category/get-all`)
       .then((res) => setCategories(res.data.data))
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   useEffect(() => {

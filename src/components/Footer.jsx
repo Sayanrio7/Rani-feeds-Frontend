@@ -187,10 +187,10 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-green-500 shrink-0" />
 
                 <a
-                  href="tel:+919804036124"
+                  href="tel:+919073558447"
                   className="text-md md:text-base hover:text-green-400 transition-colors"
                 >
-                  +91 9804036124
+                  +91 9073558447
                 </a>
               </li>
 
@@ -202,10 +202,10 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-green-500 shrink-0" />
 
                 <a
-                  href="mailto:info@ranifeeds.com"
+                  href="mailto:ranifeeds@gmail.com"
                   className="text-md md:text-base hover:text-green-400 transition-colors"
                 >
-                  info@ranifeeds.com
+                  ranifeeds@gmail.com
                 </a>
               </li>
             </ul>
