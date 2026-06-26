@@ -6,6 +6,7 @@ import Link from "next/link";
 import Loader from "@/components/Loader";
 import { motion } from "framer-motion";
 import TranslateSafeLink from "@/components/TranslateSafeLink";
+import Image from "next/image";
 
 export default function ProductsPage() {
   const [categories, setCategories] = useState([]);

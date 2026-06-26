@@ -5,6 +5,7 @@ import Link from "next/link";
 import Loader from "@/components/Loader";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Image from "next/image";
 
 const fadeUp = {
   hidden: {

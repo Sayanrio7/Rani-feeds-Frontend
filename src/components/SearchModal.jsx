@@ -4,6 +4,7 @@ import axios from "axios";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function SearchModal({ onClose }) {
   const [search, setSearch] = useState("");

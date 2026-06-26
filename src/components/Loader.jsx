@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Loader() {
   return (
     <div className="fixed inset-0 z-[99999] overflow-hidden bg-[#f8faf8] flex items-center justify-center px-4">

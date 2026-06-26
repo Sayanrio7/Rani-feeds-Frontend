@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import axios from "axios";
 import SearchModal from "@/components/SearchModal";
 import { SendHorizontal, Send } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

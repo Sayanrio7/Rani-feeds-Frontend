@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Loader from "@/components/Loader";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
 import { CalendarDays, ArrowRight } from "lucide-react";
 
 export default function BlogPage() {

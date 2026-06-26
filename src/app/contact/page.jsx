@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock3, Send, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 export default function ContactPage() {
   const [products, setProducts] = useState([]);

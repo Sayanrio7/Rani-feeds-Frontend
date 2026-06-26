@@ -6,6 +6,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
 
 export default function Footer() {
   const year = new Date().getFullYear();
