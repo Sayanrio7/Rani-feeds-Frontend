@@ -679,24 +679,24 @@ export default function Home() {
                     console.log(err);
                   }
                 }}
-                className="absolute top-6 right-6 z-30 w-14 h-14 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center hover:scale-110 transition cursor-pointer"
+                className="absolute top-6 right-2 sm:right-6 z-30 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center hover:scale-110 transition cursor-pointer"
               >
                 {isPlaying ? "❚❚" : "▶"}
               </button>
 
               {/* Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-                <span className="px-5 py-2 rounded-full bg-green-600/90 text-white font-semibold uppercase tracking-widest text-sm">
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6">
+                <span className="px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-green-600/90 text-white font-semibold uppercase tracking-wider sm:tracking-widest text-[11px] sm:text-[14px]">
                   Manufacturing Excellence
                 </span>
 
-                <h3 className="mt-6 text-white text-3xl sm:text-5xl md:text-7xl font-black leading-tight drop-shadow-2xl">
+                <h3 className="mt-4 sm:mt-6 text-white text-[30px] sm:text-5xl md:text-7xl font-black leading-tight drop-shadow-2xl">
                   Premium Nutrition
                   <br />
                   For Better Fish Growth
                 </h3>
 
-                <p className="mt-8 text-white/90 text-base md:text-2xl max-w-4xl leading-relaxed">
+                <p className="mt-5 sm:mt-16 text-white/90 text-sm sm:text-base md:text-2xl max-w-xs sm:max-w-lg md:max-w-4xl leading-relaxed">
                   Scientifically formulated fish feed trusted by modern
                   aquaculture farms for superior growth, health, and
                   sustainability.
@@ -726,7 +726,7 @@ export default function Home() {
 
               {/* Content */}
               <div className="px-2">
-                <span className="relative inline-block px-4 py-2 rounded-full bg-orange-500 text-white font-semibold uppercase tracking-wider text-sm">
+                <span className="relative inline-block px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-orange-500 text-white font-semibold uppercase tracking-wider text-[12px]">
                   On The Farm
                 </span>
 
@@ -735,7 +735,7 @@ export default function Home() {
                   <span className="text-green-700"> Rani Feeds</span>
                 </h3>
 
-                <p className="mt-6 text-gray-600 text-lg leading-8">
+                <p className="mt-6 text-gray-600 text-[17px] sm:text-lg leading-8">
                   See how farmers across the region use Rani Feeds every day to
                   promote healthy fish growth, stronger immunity, and
                   sustainable aquaculture practices.
@@ -745,7 +745,7 @@ export default function Home() {
                   <span className="px-4 py-2 rounded-full bg-orange-100 text-orange-600 text-sm font-semibold">
                     ✔ Better Growth
                   </span>
-                  
+
                   <span className="px-4 py-2 rounded-full bg-orange-100 text-orange-600 text-sm font-semibold">
                     ✔ Better Growth
                   </span>
