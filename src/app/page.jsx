@@ -654,7 +654,7 @@ export default function Home() {
                 playsInline
                 preload="auto"
                 controls={false}
-                className="w-full h-[350px] md:h-[850px] object-cover transition duration-[3000ms] group-hover:scale-105"
+                className="w-full h-[350px] md:h-[650px] object-cover transition duration-[3000ms] group-hover:scale-105"
               >
                 <source src="/rani-video.mp4" type="video/mp4" />
               </video>
